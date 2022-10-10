@@ -1,6 +1,6 @@
 <?php
 require_once "IzipayController.php";
-require_once "keys.php";
+require_once "keys.example.php";
 
 session_start();
 date_default_timezone_set("UTC");
@@ -89,7 +89,6 @@ $formToken = $response["answer"]["formToken"];
             <div class="kr-form-error"></div>
           </div>  
 
-
         </div>
       </div>
     </div>
@@ -109,20 +108,6 @@ $formToken = $response["answer"]["formToken"];
         e.preventDefault();
         handleDisplay(".checkout > form","none");
         handleDisplay(".checkout > div","block")
-
-        // let res =  await fetch("rpta.json");
-        // let json = await res.json();
-
-        // if(sendPayment("validatePayment",json)){
-        //   handleDisplay("div.cart","none");
-        //   handleDisplay("div.checkout","none");
-        //   // console.log("Json: ",json);
-        //   document.querySelector(".content-checkout").innerHTML = `${json}`;
-        //   showAnswer(json);
-        // }else{
-        //   console.log("Error de pago");
-        // }
-        
       })
 
       KR.onSubmit( function(event) {
