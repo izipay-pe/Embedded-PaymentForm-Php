@@ -1,9 +1,6 @@
 <?php
 require_once "IzipayController.php";
-require_once "keys.example.php";
-
-session_start();
-date_default_timezone_set("UTC");
+require_once "example.keys.php";
 
 $payment = new IzipayController();
 
@@ -30,8 +27,9 @@ $formToken = $response["answer"]["formToken"];
   <!-- Javascript library. Should be loaded in head section -->
   <script 
    src="<?= $payment->getEndpointApiRest() ?>/static/js/krypton-client/V4.0/stable/kr-payment-form.min.js"
-   kr-public-key="<?= $payment->getPublicKey() ?>"
-   kr-post-url-success="paid.php">
+   kr-public-key="<?= $payment->getPublicKey() ?>" 
+   kr-post-url-success="paid.php"
+   >
   </script>
   <!-- theme and plugins. should be loaded after the javascript library -->
   <!-- not mandatory but helps to have a nice payment form out of the box -->
@@ -54,7 +52,7 @@ $formToken = $response["answer"]["formToken"];
       <div class="content-checkout">
         <div class='cart'>
           <div class='Product'>
-              <h4><?=$_SESSION["product"]?></h4><img src="<?=$_POST['image']?>" alt="<?=$_POST['image']?>">
+              <h4><?=$_POST["product"]?></h4><img src="<?=$_POST['image']?>" alt="<?=$_POST['image']?>">
               <p><span>S/</span><?=$_POST['amount']?></p>
           </div>
         </div>
@@ -104,77 +102,19 @@ $formToken = $response["answer"]["formToken"];
   <script>
     
     window.onload = function() {
-      document.querySelector(".checkout > form").addEventListener("submit",async (e)=>{
+      document.querySelector(".checkout > form").addEventListener("submit", (e)=>{
         e.preventDefault();
         handleDisplay(".checkout > form","none");
         handleDisplay(".checkout > div","block")
+
       })
-
-      KR.onSubmit( function(event) {
-        /* Change the button label to the orderStatus */
-        if(sendPayment("validatePayment",event)){
-          handleDisplay("div.cart","none");
-          handleDisplay("div.checkout","none");
-          showAnswer(event);
-          // document.querySelector(".content-checkout").innerHTML = `<h2>Pago Finalizado</h2>`;
-
-        }else{
-          console.log("Error de pago");
-        }
-          /* return values:
-        * true: kr-post-success-url is called using POST
-        * false: kr-post-success-url is not called, execution stops.
-        */
-        return false;
-
-      });
-
       const handleDisplay = (element,display)=>{
         document.querySelector(element).style.display = display;
       }
+    }
 
-      const sendPayment = async (target, data) => {
-        fetch(`${target}.php`,{
-          method:"POST",
-          headers:{"Content-Type":"application/json"},
-          body: JSON.stringify(data)
-        })
-        .then(res=>res.json())
-        .then(res => {
-          if(res.rpta == "ok"){
-            console.log("respuesta ipn", res);
-            return true;
-          }else{
-            console.log(res.body);
-            return false;
-          }
-        })
-        .catch(err=>{
-          console.log("Error:",err);
-          return false;
-        })
-    
-      }
-
-      const showAnswer = (answer)=>{
-        let html = "";
-        let content = document.querySelector(".content-checkout");
-        document.querySelector(".App > h2").innerHTML = "Pago Finalizado";
-        const { clientAnswer, hash, hashAlgorithm, hashKey } = answer;
-        html += field("hash", hash);
-        html += field("hashAlgorithm", hashAlgorithm);
-        html += field("hashKey", hashKey);
-        html += field("clientAnswer", `<div class='kr-answer'>${JSON.stringify(clientAnswer)}</div>`);
-        console.log(answer);
-        // Object.entries(answer).forEach((key, value) => {
-        //   html += `<p><span>${key}</span>${value}</p>`;
-        // });
-        content.outerHTML = html;
-      }
-
-      const field = (field, value) => `<p><span>${field} : </span>  ${value}</p>`;
       
-    };
+      
   </script>
 </body>
 </html>

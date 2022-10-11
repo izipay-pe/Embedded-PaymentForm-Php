@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Form Izipay</title>
+    <title>Embedded Payment Form</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 </head>
@@ -42,21 +42,21 @@ session_start();
                 </div>
             </div>
             <?php
-                if(isset($_POST["product"])){
-                    $_SESSION["product"] = $_POST['product'];
-                    echo "
+            if (isset($_POST["product"])) {
+                $_SESSION["product"] = $_POST['product'];
+                echo "
                     <div class='content-checkout'>
                         <div class='cart'>
                             <div class='Product'>
-                                <h4>".$_POST['product']."</h4><img src=".$_POST["image"]." alt=".$_POST["image"].">
-                                <p><span>S/</span>". $_POST["amount"]."</p>
+                                <h4>" . $_POST['product'] . "</h4><img src=" . $_POST["image"] . " alt=" . $_POST["image"] . ">
+                                <p><span>S/</span>" . $_POST["amount"] . "</p>
                             </div>
                         </div>
                         <div class='checkout'>
                             <h3>Datos del cliente</h3>
                             <form id='form-control' method='post'> 
-                                <input type='hidden' value=".$_POST["amount"]." />
-                                <input type='hidden' value=".$_POST["image"]." />
+                                <input type='hidden' value=" . $_POST["amount"] . " />
+                                <input type='hidden' value=" . $_POST["image"] . " />
                                 <div class='control-group'>
                                     <label for='firstname'>First Name</label>
                                     <input type'text' id='firstname' name='firstname' autocomplete='off' required='' value=''>
@@ -90,9 +90,8 @@ session_start();
                     document.getElementById('form-control').addEventListener('submit',(e)=> infoPayment(e))
                 })</script>
                   ";
-                }else{
-                    
-                }
+            } else {
+            }
             ?>
         </div>
         <footer class="Soporte-Ecommerce">
@@ -128,24 +127,26 @@ session_start();
                     image: e.target.parentElement.children[1].src,
                     amount: e.target.parentElement.children[2].value,
                 }
-                e.target.parentElement.parentElement.outerHTML  = "";
+                e.target.parentElement.parentElement.outerHTML = "";
                 // sendData('infoPayment.php', data, "post");
                 sendData('index.php', data, "post");
             }
         })
-        
-       const infoPayment = (e) =>{
-        e.preventDefault();
-        console.log(e.target.children[2]);
+
+        const infoPayment = (e) => {
+            e.preventDefault();
+            console.log(e.target.children[2]);
+            let product = document.querySelector(".content-checkout > .cart > .Product > h4").innerHTML;
             let dataPayment = {
                 amount: e.target.children[0].value,
-                image:  e.target.children[1].value,
+                image: e.target.children[1].value,
                 firstName: e.target.children[2].children[1].value,
                 lastName: e.target.children[3].children[1].value,
                 email: e.target.children[4].children[1].value,
+                product
             }
             sendData('checkout.php', dataPayment, "post");
-       }
+        }
     </script>
 </body>
 
