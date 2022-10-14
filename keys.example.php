@@ -1,16 +1,16 @@
 <?php
 
 // Identificador de su tienda
-IzipayController::setDefaultUsername("12345678");
+IzipayController::setDefaultUsername("~ CHANGE_ME_USER_ID ~");
 
 // Clave de Test o Producción
-IzipayController::setDefaultPassword("testpassword_111111111111111111111111111111111111");
+IzipayController::setDefaultPassword("~ CHANGE_ME_PASSWORD ~");
 
 // Clave Pública de Test o Producción
-IzipayController::setDefaultPublicKey("2222222222222222222222222222222222222222222222222");
+IzipayController::setDefaultPublicKey("~ CHANGE_ME_PUBLIC_KEY ~");
 
 // Clave HMAC-SHA-256 de Test o Producción
-IzipayController::setDefaultHmacSha256("33333333333333333333333333333333333333333333333");
+IzipayController::setDefaultHmacSha256("~ CHANGE_ME_HMAC_SHA_256 ~");
 
 // URL del servidor de Izipay
 IzipayController::setDefaultEndpointApiRest("https://api.micuentaweb.pe");
