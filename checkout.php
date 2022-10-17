@@ -4,6 +4,7 @@ require_once "keys.example.php";
 
 $payment = new IzipayController();
 
+$error = "";
 $datos = array(
   "amount" => $_POST["amount"]*100,
   "currency" => "PEN",
@@ -12,8 +13,10 @@ $datos = array(
   ),
   "orderId" => uniqid("MyOrderId"),
 );
-$response = $payment->post("V4/Charge/CreatePayment",$datos);
-$formToken = $response["answer"]["formToken"];
+
+  $response = $payment->post("V4/Charge/CreatePayment",$datos);
+  $formToken = $response["answer"]["formToken"];
+
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +50,7 @@ $formToken = $response["answer"]["formToken"];
 </head>
 <body>
   <div class="root">
+    <div><?=$error ?></div>
     <div class="App">
       <h2>Confirmar compra <img src="https://iziweb001.s3.amazonaws.com/webresources/img/logo.png" alt="Logo de Izipay"></h2>
       <div class="content-checkout">
