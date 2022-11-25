@@ -1,16 +1,16 @@
 ﻿# Embedded-PaymentForm-PHP
 
-<p align="justify">Ejemplo del formulario Embedido, para utilizar el lenguaje de programación PHP en su proyecto, con el uso de este formulario de pago te permitirá tener el control de la respuesta de retorno de la información de pago en su propia web y brindarle una experiencia enriquecedora  al cliente final. 
-
+<p align="justify">Ejemplo de un formulario Embedido con PHP, este ejemplo te servira como guia para poder ejecutar el formulario de pago de Izipay
+dentro de cualquier proyecto que utilice el lenguaje de programacion php.
+ 
 PHP es un lenguaje de programación destinado a desarrollar aplicaciones para la web y crear páginas web, favoreciendo la conexión entre los servidores y la interfaz de usuario.
+
 </p>
 <p align="center">
     <img src="images/formulario-incrustado.png" alt="formulario"/>
 </p>
 
-
-[![](Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,puede realizar las modificaciones necesarias para su proyecto.)](https://github.com/izipay-pe/Embedded-PaymentForm-Php/edit/main/README.md)
-
+##Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,puede realizar las modificaciones necesarias para su proyecto.
 
 
 <a name="Requisitos_Previos"></a>
