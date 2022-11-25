@@ -8,8 +8,8 @@ PHP es un lenguaje de programación destinado a desarrollar aplicaciones para la
     <img src="images/formulario-incrustado.png" alt="formulario"/>
 </p>
 
-<p style="back-ground: #fff" align="center">
-    Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos, puede realizar las modificaciones necesarias para su proyecto. 
+<p align="center">
+   <span style="color: green"> Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos, puede realizar las modificaciones necesarias para su proyecto.  </span>
 </p>
      
 
