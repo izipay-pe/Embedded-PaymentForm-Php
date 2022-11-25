@@ -14,11 +14,7 @@ PHP es un lenguaje de programación destinado a desarrollar aplicaciones para la
 </span>
 
 ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
+@@ Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos, puede realizar las modificaciones necesarias para su proyecto.   in red
 ```
 
 <a name="Requisitos_Previos"></a>
