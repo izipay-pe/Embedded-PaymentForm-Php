@@ -9,14 +9,7 @@ PHP es un lenguaje de programación destinado a desarrollar aplicaciones para la
 </p>
 
 
-
-```diff
--Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,
--puede realizar las modificaciones necesarias para su proyecto.
-```
-
-
-[![](https://img.shields.io/badge/github-blue?style=for-the-badge)](https://github.com/hamzamohdzubair/redant)
+[![](Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,puede realizar las modificaciones necesarias para su proyecto.)]()
 
 
 
