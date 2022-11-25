@@ -9,7 +9,7 @@ PHP es un lenguaje de programación destinado a desarrollar aplicaciones para la
 </p>
 
 
-[![](Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,puede realizar las modificaciones necesarias para su proyecto.)]()
+[![](Este ejemplo es solo una guía para poder realizar la integración de la pasarela de pagos,puede realizar las modificaciones necesarias para su proyecto.)](https://github.com/izipay-pe/Embedded-PaymentForm-Php/edit/main/README.md)
 
 
 
